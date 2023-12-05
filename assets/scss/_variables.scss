@@ -1,0 +1,68 @@
+//@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap');
+//
+//@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+
+$font-family-sans-serif: 'Rubik', sans-serif !default;
+$font-family-serif:      Georgia, "Times New Roman", Times, serif !default;
+$font-family-monospace:  Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !default;
+$font-family-base:       $font-family-sans-serif !default;
+
+$font-family-cursive: 'Caveat', cursive;
+
+//colors copied from hadithi
+$black: #000000;
+$black2: #222222;
+$gray-dark: #333333;
+
+$text-primary: $black;
+$text-secondary: $gray-dark;
+
+$orange-light: #f2ceb9;
+$orange: #ef6603;
+$orange-hover: #fc8129;
+$antique: #ddd0c9;
+
+$green: #95be5b;
+
+$white: #ffffff;
+$white2: #f8f8f8;
+
+$atmosphere: #f4f1f1;
+
+$gray: #cccccc;
+$gray2: #bababa;
+$gray3: #777777;
+$gray4: #444444;
+
+$gray-a: #a9a8a9;
+$gray-b: #bababa;
+
+$lightgray: #e8e8e8;
+$steelblue: #3a3c4b;
+$darkgray: #212529;;
+
+$pink: #C57FFF;
+$blue: #5B7AFC;
+
+
+$blue1: #1b32b8;
+$blue2: #273bb3;
+$blue3: #2f46cc;
+$blue4: #314be1;
+$blue5: #748fff;
+
+$deep-purple: #452276;
+
+$color-primary: $blue;
+$color-primary-lighter: $blue5;
+
+
+// util
+
+.border-radius-15 {
+  border-radius: 15px;
+}
+
+.border-radius-25 {
+  border-radius: 25px;
+}
