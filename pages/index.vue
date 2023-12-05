@@ -8,9 +8,9 @@
 
         <div class="articles">
           <div
+            v-for="(article, i) of articles"
+            :key="i"
             class="article"
-            v-for="article of articles"
-            :key="article"
           >
 
             <nuxt-link :to="{ name: 'blog-slug', params: { slug: article.slug }}">
