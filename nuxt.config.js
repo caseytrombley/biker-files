@@ -44,6 +44,10 @@ export default {
     '@nuxt/content'
   ],
 
+  bootstrapVue: {
+    icons: true
+  },
+
   styleResources: {
     scss: ['~/assets/scss/_variables.scss'],
     hoistUseStatements: true

@@ -2,7 +2,7 @@
   <div class="default">
     <AppHeader />
 
-      <Nuxt />
+    <Nuxt />
 
     <AppFooter />
   </div>

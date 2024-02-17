@@ -52,12 +52,12 @@
         <b-row v-if="posts.length" class="post-pagination">
           <b-col class="text-right" cols="12">
             <b-btn :disabled="page === 1" @click="fetchPrevious">
-              <b-icon small> mdi-arrow-left </b-icon>
+              <b-icon-arrow-left />
               Previous
             </b-btn>
             <b-btn :disabled="!nextPage" @click="fetchNext">
               Next
-              <b-icon small> mdi-arrow-right </b-icon>
+              <b-icon-arrow-right />
             </b-btn>
           </b-col>
         </b-row>
