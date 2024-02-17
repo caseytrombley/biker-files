@@ -72,8 +72,14 @@ export default {
       articles,
       reviews
     }
-  }
+  },
+  computed: {
+    searchQuery() {
+      return this.$store.state.query
+    },
+  },
 }
+
 </script>
 
 <style lang="scss" scoped>
