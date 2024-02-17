@@ -142,8 +142,8 @@ export default {
       }
 
       const fetchedPosts = await baseFetch
-        .sortBy('createdAt', 'desc')
         .search(query)
+        .sortBy('createdAt', 'desc')
         .skip((this.limit - 1) * (this.page - 1))
         .fetch()
 

@@ -93,10 +93,12 @@ export default {
   computed: {
     search: {
       get() {
-        return this.$store.state.query
+        return this.$store.state.query;
       },
       set(value) {
-        this.$store.commit('SET_QUERY', value)
+        // Update Vuex store and trigger post fetching
+        this.$store.commit('SET_QUERY', value);
+        this.$router.push({ query: { q: value } });
       },
     },
   },
