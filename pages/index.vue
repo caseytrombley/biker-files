@@ -13,14 +13,12 @@
         <b-row v-else class="posts-container mt-5">
           <b-col cols="12">
             <div class="filter">
-              <b-select
+              <b-form-select
                 v-if="categories.length"
                 v-model="category"
                 style="width: 100px"
-                outlined
-                dense
                 hide-details="auto"
-                :items="categories"
+                :options="categories"
               />
             </div>
           </b-col>
@@ -137,7 +135,7 @@ export default {
       await this.fetchPosts()
     },
     async fetchPosts(query = '') {
-      let baseFetch = this.$content().limit(this.limit)
+      let baseFetch = this.$content('blog').limit(this.limit)
 
       if (this.category !== 'all') {
         baseFetch = baseFetch.where({ category: this.category })
