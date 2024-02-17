@@ -4,48 +4,64 @@
 
     <div class="container-inside">
       <b-container>
-        <div>
-          <h2>Latest Reviews</h2>
 
-          <div class="reviews items">
-            <div
-              v-for="(review, i) of reviews"
-              :key="i"
-              class="review item"
-            >
-
-              <nuxt-link :to="{ name: 'reviews-slug', params: { slug: review.slug }}">
-                <div class="item-preview">
-                  <img :src="require(`~/assets/img/reviews/${review.img}`)" alt="Review image">
-                  <h4>{{ review.title }}</h4>
-                  <p>{{ review.description }}</p>
-                </div>
-
-              </nuxt-link>
+        <b-row v-if="!posts.length">
+          <b-col cols="12">
+            <p>No posts found, yet. <span class="emoji">😁</span></p>
+          </b-col>
+        </b-row>
+        <b-row v-else class="posts-container mt-5">
+          <b-col cols="12">
+            <div class="filter">
+              <b-select
+                v-if="categories.length"
+                v-model="category"
+                style="width: 100px"
+                outlined
+                dense
+                hide-details="auto"
+                :items="categories"
+              />
             </div>
-          </div>
-        </div>
-        <div>
-          <h2>Latest Posts</h2>
+          </b-col>
 
-          <div class="articles items">
-            <div
-              v-for="(article, i) of articles"
-              :key="i"
-              class="article item"
-            >
+          <b-col v-for="post in posts" :key="post.slug" cols="12" md="6">
+            <b-card elevation="0">
+              <b-card-title> {{ post.title }} </b-card-title>
+              <b-card-subtitle>
+                {{
+                  new Intl.DateTimeFormat('en-US', {
+                    year: 'numeric',
+                    month: 'numeric',
+                    day: 'numeric',
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    second: 'numeric',
+                  }).format(new Date(post.createdAt))
+                }}
+              </b-card-subtitle>
+              <b-card-text>
+                <nuxt-content :document="{ body: post.excerpt }" />
+              </b-card-text>
+              <b-card-actions>
+                <b-btn text :to="post.path">Read More</b-btn>
+              </b-card-actions>
+            </b-card>
+          </b-col>
+        </b-row>
+        <b-row v-if="posts.length" class="post-pagination">
+          <b-col class="text-right" cols="12">
+            <b-btn :disabled="page === 1" @click="fetchPrevious">
+              <b-icon small> mdi-arrow-left </b-icon>
+              Previous
+            </b-btn>
+            <b-btn :disabled="!nextPage" @click="fetchNext">
+              Next
+              <b-icon small> mdi-arrow-right </b-icon>
+            </b-btn>
+          </b-col>
+        </b-row>
 
-              <nuxt-link :to="{ name: 'blog-slug', params: { slug: article.slug }}">
-                <div class="item-preview">
-                  <img :src="require(`~/assets/img/blog/${article.img}`)" alt="Blog image">
-                  <h4>{{ article.title }}</h4>
-                  <p>{{ article.description }}</p>
-                </div>
-
-              </nuxt-link>
-            </div>
-          </div>
-        </div>
       </b-container>
 
     </div>
@@ -57,25 +73,85 @@
 
 export default {
   name: 'IndexPage',
-  async asyncData ({ $content, params }) {
-    const articles = await $content('blog', params.slug)
-      .only(['title', 'description', 'slug', 'img'])
-      .sortBy('createdAt', 'asc')
-      .fetch();
+  layout: 'DefaultLayout',
+  async asyncData({ $content }) {
+    const limit = 5
+    const page = 1
 
-    const reviews = await $content('reviews', params.slug)
-      .only(['title', 'description', 'slug', 'img'])
-      .sortBy('createdAt', 'asc')
-      .fetch();
+    const fetchedPosts = await $content('blog')
+      .limit(limit)
+      .sortBy('createdAt', 'desc')
+      .skip((limit - 1) * (page - 1))
+      .fetch()
+
+    const nextPage = fetchedPosts.length === limit
+    const posts = nextPage ? fetchedPosts.slice(0, -1) : fetchedPosts
 
     return {
-      articles,
-      reviews
+      page,
+      limit,
+      posts,
+      nextPage,
     }
   },
+
+  data: () => ({
+    category: 'all',
+    categories: [],
+  }),
+
+  fetch() {
+    this.$content('blog')
+      .only(['category'])
+      .fetch()
+      .then((categories) => {
+        const payload = Array.from(new Set(categories.map((c) => c.category)))
+        this.categories = ['all', ...payload]
+      })
+  },
+
   computed: {
     searchQuery() {
       return this.$store.state.query
+    },
+  },
+
+  watch: {
+    async searchQuery(newValue) {
+      this.page = 1
+      await this.fetchPosts(newValue)
+    },
+    async category() {
+      this.page = 1
+      await this.fetchPosts(this.searchQuery)
+    },
+  },
+
+  methods: {
+    async fetchNext() {
+      this.page += 1
+      await this.fetchPosts()
+    },
+    async fetchPrevious() {
+      this.page -= 1
+      await this.fetchPosts()
+    },
+    async fetchPosts(query = '') {
+      let baseFetch = this.$content().limit(this.limit)
+
+      if (this.category !== 'all') {
+        baseFetch = baseFetch.where({ category: this.category })
+      }
+
+      const fetchedPosts = await baseFetch
+        .sortBy('createdAt', 'desc')
+        .search(query)
+        .skip((this.limit - 1) * (this.page - 1))
+        .fetch()
+
+      this.nextPage = fetchedPosts.length === this.limit
+      const posts = this.nextPage ? fetchedPosts.slice(0, -1) : fetchedPosts
+      this.posts = posts
     },
   },
 }
