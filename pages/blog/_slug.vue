@@ -1,10 +1,7 @@
 <template>
   <b-container style="max-width: 1000px" fluid>
     <section class="my-3 pt-5">
-      <b-btn text to="/">
-        <b-icon small class="mr-2">mdi-arrow-left</b-icon>
-        Go back
-      </b-btn>
+      <b-btn @click="to()">Go Back</b-btn>
     </section>
     <section class="post-content mt-5">
       <h2 class="text-h2 mb-10">{{ post.title }}</h2>
@@ -21,7 +18,7 @@
 
 <script>
 export default {
-  name: 'PostPage',
+  name: 'BlogPostPage',
   layout: 'DefaultLayout',
   async asyncData({ $content, error, params }) {
     const post = await $content('blog', params.slug)
@@ -45,6 +42,11 @@ export default {
       prev,
       next,
     };
+  },
+  methods: {
+    to() {
+      window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
+    },
   },
   head() {
     return {

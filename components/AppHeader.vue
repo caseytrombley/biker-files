@@ -28,25 +28,6 @@
 <!--            <b-nav-item class="nav-link scrollto active" href="#hero">Home</b-nav-item>-->
 <!--            <b-nav-item class="nav-link scrollto" href="#about">About</b-nav-item>-->
 
-            <div
-              v-if="$route.name === 'index'"
-              class="search d-flex align-center justify-end ml-3"
-            >
-              <b-input-group size="sm" class="align-items-center">
-<!--                <template #prepend>-->
-<!--                  <b-input-group-text><b-icon icon="search"></b-icon></b-input-group-text>-->
-<!--                </template>-->
-                <b-form-input
-                  v-model="search"
-                  type="search"
-                  hide-details="auto"
-                  placeholder="Search for a post"
-                  @click:append="clearSearch"
-                />
-              </b-input-group>
-
-
-            </div>
 
           </b-navbar-nav>
 
@@ -92,18 +73,6 @@ export default {
       numberReverse: 1
     }
   },
-  computed: {
-    search: {
-      get() {
-        return this.$store.state.query;
-      },
-      set(value) {
-        // Update Vuex store and trigger post fetching
-        this.$store.commit('SET_QUERY', value);
-        this.$router.push({ query: { q: value } });
-      },
-    },
-  },
   mounted() {
     window.addEventListener('scroll', this.updateScroll);
   },
@@ -111,9 +80,6 @@ export default {
     window.removeEventListener('scroll', this.updateScroll)
   },
   methods: {
-    clearSearch() {
-      this.$store.commit('SET_QUERY', '')
-    },
     updateScroll() {
       this.scrollPosition = window.scrollY;
       this.number = this.scrollPosition <= 300 ? this.scrollPosition / 300 : 1;

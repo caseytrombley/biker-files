@@ -2,7 +2,7 @@
   <div>
     <section>
       <b-container fluid="xl">
-        <h1>Blog home</h1>
+        <h1>Reviews home</h1>
 
         <div
           class="search d-flex align-center justify-end ml-3"
@@ -88,12 +88,12 @@
 
 <script>
 export default {
-  name: 'BlogHome',
+  name: 'ReviewsHome',
   async asyncData({ $content }) {
     const limit = 5
     const page = 1
 
-    const fetchedPosts = await $content('blog')
+    const fetchedPosts = await $content('reviews')
       .limit(limit)
       .sortBy('createdAt', 'desc')
       .skip((limit - 1) * (page - 1))
@@ -116,7 +116,7 @@ export default {
   }),
 
   fetch() {
-    this.$content('blog')
+    this.$content('reviews')
       .only(['category'])
       .fetch()
       .then((categories) => {
@@ -165,7 +165,7 @@ export default {
       await this.fetchPosts()
     },
     async fetchPosts(query = '') {
-      let baseFetch = this.$content('blog').limit(this.limit)
+      let baseFetch = this.$content('reviews').limit(this.limit)
 
       if (this.category !== 'all') {
         baseFetch = baseFetch.where({ category: this.category })
