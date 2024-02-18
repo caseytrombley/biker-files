@@ -21,32 +21,34 @@ export default {
   name: 'BlogPostPage',
   layout: 'DefaultLayout',
   async asyncData({ $content, error, params }) {
-    const post = await $content('blog', params.slug)
-      .fetch()
-      .catch(() => {
+    try {
+      const posts = await $content('blog').sortBy('createdAt', 'desc').fetch();
+      const currentIndex = posts.findIndex(p => p.slug === params.slug);
+
+      if (currentIndex === -1) {
         error({
           statusCode: 404,
-          message: 'Oops, looks like that does not exist...',
+          message: 'Post not found.',
         });
+        return;
+      }
+
+      const post = posts[currentIndex];
+      const prev = currentIndex === 0 ? null : posts[currentIndex - 1];
+      const next = currentIndex === posts.length - 1 ? null : posts[currentIndex + 1];
+
+      return {
+        post,
+        prev,
+        next,
+      };
+    } catch (err) {
+      console.error('Error fetching posts:', err);
+      error({
+        statusCode: 500,
+        message: 'Internal Server Error',
       });
-
-    // Fetch previous and next posts based on current post's slug
-    const [prev, next] = await $content('blog')
-      .only(['path'])
-      .sortBy('createdAt', 'desc')
-      .surround(params.slug)
-      .fetch();
-
-    return {
-      post,
-      prev,
-      next,
-    };
-  },
-  methods: {
-    to() {
-      window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
-    },
+    }
   },
   head() {
     return {
@@ -77,6 +79,11 @@ export default {
         },
       ],
     }
+  },
+  methods: {
+    to() {
+      window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
+    },
   },
 }
 </script>

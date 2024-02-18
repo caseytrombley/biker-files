@@ -42,8 +42,8 @@
           <!--          </b-nav-item-dropdown>-->
 
           <!--          <b-nav-item-dropdown right>-->
-          <!--            &lt;!&ndash; Using 'button-content' slot &ndash;&gt;-->
-          <!--            <template #button-content>-->
+          <!--            &lt;!&ndash; Using 'button-global' slot &ndash;&gt;-->
+          <!--            <template #button-global>-->
           <!--              <em>User</em>-->
           <!--            </template>-->
           <!--            <b-dropdown-item href="#">Profile</b-dropdown-item>-->
