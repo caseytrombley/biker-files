@@ -20,10 +20,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-::v-deep {
-
+.default {
+  position: relative;
+  display: flex;
+  flex-direction: column;
 }
 .main {
-  padding-top: 70px;
+  min-height: 100vh;
+  padding-top: 68px;
 }
 </style>
