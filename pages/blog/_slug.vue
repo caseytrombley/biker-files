@@ -1,6 +1,6 @@
 <template>
   <b-container style="max-width: 1000px" fluid>
-    <section class="my-3">
+    <section class="my-3 pt-5">
       <b-btn text to="/">
         <b-icon small class="mr-2">mdi-arrow-left</b-icon>
         Go back
@@ -24,27 +24,27 @@ export default {
   name: 'PostPage',
   layout: 'DefaultLayout',
   async asyncData({ $content, error, params }) {
-    // TODO Paginate
-    const [prev, next] = await $content()
-      .only(['path'])
-      .sortBy('createdAt', 'desc')
-      .surround(params.slug)
+    const post = await $content('blog', params.slug)
       .fetch()
-
-    const post = await $content(params.slug)
-      .fetch()
-      .catch(() =>
+      .catch(() => {
         error({
           statusCode: 404,
           message: 'Oops, looks like that does not exist...',
-        })
-      )
+        });
+      });
+
+    // Fetch previous and next posts based on current post's slug
+    const [prev, next] = await $content('blog')
+      .only(['path'])
+      .sortBy('createdAt', 'desc')
+      .surround(params.slug)
+      .fetch();
 
     return {
       post,
       prev,
       next,
-    }
+    };
   },
   head() {
     return {
