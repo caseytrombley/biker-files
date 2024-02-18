@@ -162,4 +162,7 @@ export default {
     width: 200px;
   }
 }
+.container-inside {
+  margin: 2rem 0;
+}
 </style>

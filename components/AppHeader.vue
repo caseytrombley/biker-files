@@ -8,13 +8,11 @@
     <b-navbar
         toggleable="lg"
         fixed="top"
-        :style="[{background: `rgba(0,0,0,${number}`}, {padding: `${scrollPosition > 80 ? '0' : '15px'} 0`}]"
+        variant="dark"
+        :style="[{background: `rgba(0,0,0,${number}`}, {padding: `${scrollPosition > 80 ? '0' : '5px'} 0`}]"
     >
       <b-container fluid="xl" class="justify-content-between">
-        <b-navbar-brand href="/">
-          <app-logo :height="scrollPosition > 80 ? 54 : 60" />
-
-        </b-navbar-brand>
+        <NuxtLink to="/" class="navbar-brand"><app-logo :height="scrollPosition > 80 ? 54 : 60" /></NuxtLink>
 
         <b-navbar-toggle target="nav-collapse">
 <!--          <b-icon-list />-->
@@ -22,9 +20,13 @@
 
         <b-collapse id="nav-collapse" class="justify-content-end" is-nav :style="{background: `rgba(0,0,0,${numberReverse}`}">
           <b-navbar-nav class="ml-auto">
+            <b-nav-text class="nav-link"><NuxtLink to="/about">About</NuxtLink></b-nav-text>
+            <b-nav-text class="nav-link"><NuxtLink to="/blog">Blog</NuxtLink></b-nav-text>
+            <b-nav-text class="nav-link"><NuxtLink to="/reviews">Reviews</NuxtLink></b-nav-text>
 
-            <b-nav-item class="nav-link scrollto active" href="#hero">Home</b-nav-item>
-            <b-nav-item class="nav-link scrollto" href="#about">About</b-nav-item>
+
+<!--            <b-nav-item class="nav-link scrollto active" href="#hero">Home</b-nav-item>-->
+<!--            <b-nav-item class="nav-link scrollto" href="#about">About</b-nav-item>-->
 
             <div
               v-if="$route.name === 'index'"
@@ -133,6 +135,10 @@ export default {
 .navbar-brand {
   position: relative;
   left: 0;
+
+  @media (max-width: 992px) {
+    margin-left: 15px;
+  }
 }
 
 .nav-link {

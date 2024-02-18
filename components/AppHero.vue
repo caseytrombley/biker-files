@@ -1,5 +1,5 @@
 <template>
-  <div class="hero-section" :class="getCss">
+  <div class="hero hero-section" :class="getCss">
 <!--    <video v-if="showVideo" class="hero-video" autoplay muted loop>-->
 <!--      <source :src="videoSource" type="video/mp4">-->
 <!--    </video>-->

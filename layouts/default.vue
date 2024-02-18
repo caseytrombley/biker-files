@@ -1,8 +1,10 @@
 <template>
   <div class="default">
     <AppHeader />
+    <div class="main">
+      <Nuxt />
+    </div>
 
-    <Nuxt />
 
     <AppFooter />
   </div>
@@ -19,8 +21,9 @@ export default {
 
 <style lang="scss" scoped>
 ::v-deep {
-  .container-inside {
-    margin: 2rem 0;
-  }
+
+}
+.main {
+  padding-top: 70px;
 }
 </style>
