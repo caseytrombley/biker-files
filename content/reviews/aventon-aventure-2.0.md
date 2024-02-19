@@ -31,11 +31,4 @@ wheels:
 
 # Aventon Aventure 2.0
 
-<review-summary>
-hello
-  <template #title>This will be rendered inside the `title` slot.</template>
-  <template #description>This will be rendered inside the `description` slot.</template>
-</review-summary>
-
-
-Last year Aventon improved their fat tire Aventure model to add some modern upgrades.
+Last year Aventon improved their fat tire Aventure model to add some modern upgrades. 

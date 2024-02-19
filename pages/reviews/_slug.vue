@@ -4,7 +4,23 @@
       <b-btn @click="to()">Go Back</b-btn>
     </section>
     <section class="post-content mt-5">
-      <h2 class="text-h2 mb-10">{{ post.title }}</h2>
+      <div class="summary">
+        <b-row>
+          <b-col>
+            <h2 class="text-h2 mb-10">{{ post.title }}</h2>
+          </b-col>
+          <b-col>
+            <ul>
+              <li v-if="post.type">{{ post.type }}</li>
+              <li v-if="post.motor">{{ post.motor }}W</li>
+              <li v-if="post.battery">{{ post.battery }}Wh battery</li>
+            </ul>
+
+
+          </b-col>
+        </b-row>
+      </div>
+
       <nuxt-content :document="post" />
     </section>
     <b-row>
@@ -82,7 +98,7 @@ export default {
   },
   methods: {
     to() {
-      window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
+      this.$router.push('/reviews')
     },
   },
 }
