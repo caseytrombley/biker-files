@@ -1,6 +1,6 @@
 <template>
   <div>
-    <section>
+    <section class="header">
       <b-container fluid="xl">
         <h1>Reviews home</h1>
 
@@ -174,4 +174,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.header {
+  padding: 2rem 0;
+
+}
 </style>
