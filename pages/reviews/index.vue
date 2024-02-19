@@ -127,8 +127,9 @@ export default {
         filtered = filtered.filter(post => {
           const isInTitle = post.title.toLowerCase().includes(searchQuery);
           const isInDescription = post.description.toLowerCase().includes(searchQuery);
+          const isInCategories = post.categories.some(cat => cat.toLowerCase().includes(searchQuery));
           const isInTags = post.tags.some(tag => tag.toLowerCase().includes(searchQuery));
-          return isInTitle || isInDescription || isInTags;
+          return isInTitle || isInDescription || isInCategories || isInTags;
         });
       }
 

@@ -9,7 +9,7 @@ categories:
 tags:
   - fat tire
   - 4" fat tire
-  - rear hub drive
+  - mid drive
   - 48V
   - 1,200Wh battery
   - 2,200W peak
