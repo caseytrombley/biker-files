@@ -3,7 +3,9 @@ title: Wired Freedom
 slug: wired-freedom
 img: wired-freedom.jpg
 description: 'Wired Freedom'
-category: Hub Drive
+categories: 
+  - Hub Drive
+  - Best of 2024
 tags:
   - fat tire
   - 4" fat tire

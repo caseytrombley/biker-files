@@ -3,7 +3,8 @@ title: M2S All Terrain
 slug: m2s-all-terrain
 img: wired-freedom.jpg
 description: 'Mountains To Sea All Terrain'
-category: Hub Drive
+categories: 
+  - Hub Drive
 tags:
   - commuter 
   - 3" fat tire

@@ -3,7 +3,8 @@ title: Some bike
 slug: some-other
 img: wired-freedom.jpg
 description: 'Some bike'
-category: Hub Drive
+categories: 
+  - Hub Drive
 tags:
   - fat tire
   - 4" fat tire

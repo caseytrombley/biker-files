@@ -3,7 +3,9 @@ title: Eunorau Specter
 slug: eunorau-specter
 img: wired-freedom.jpg
 description: 'Eunorau Specter'
-category: Mid Drive
+categories: 
+  - Mid Drive
+  - Best of 2024
 tags:
   - fat tire
   - 4" fat tire

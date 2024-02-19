@@ -3,7 +3,9 @@ title: Aventon Aventure 2.0
 slug: aventon-aventure-2.0
 img: wired-freedom.jpg
 description: 'Aventon Aventure 2.0'
-category: Hub Drive
+categories:
+  - Hub Drive
+  - Best of 2024
 tags:
   - fat tire
   - 4" fat tire
