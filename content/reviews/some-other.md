@@ -2,7 +2,7 @@
 title: Some bike
 slug: some-other
 img: wired-freedom.jpg
-description: 'Some bike'
+description: 'Some bike with high torque and quick acceleration, murph the dog loves this bike'
 categories: 
   - Hub Drive
 tags:

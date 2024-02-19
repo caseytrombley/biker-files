@@ -28,21 +28,21 @@
               <b-card-title>{{ post.title }}</b-card-title>
               <b-card-subtitle>{{ post.description }}</b-card-subtitle>
               <b-card-text>
-<!--                {{-->
-<!--                  new Intl.DateTimeFormat('en-US', {-->
-<!--                    year: 'numeric',-->
-<!--                    month: 'numeric',-->
-<!--                    day: 'numeric',-->
-<!--                    hour: 'numeric',-->
-<!--                    minute: 'numeric',-->
-<!--                    second: 'numeric',-->
-<!--                  }).format(new Date(post.createdAt))-->
-<!--                }}-->
-<!--                <ul>-->
-<!--                  <li v-for="(value, key) in post" :key="key">-->
-<!--                    <strong>{{ key }}:</strong> {{ value }}-->
-<!--                  </li>-->
-<!--                </ul>-->
+                <!--                {{-->
+                <!--                  new Intl.DateTimeFormat('en-US', {-->
+                <!--                    year: 'numeric',-->
+                <!--                    month: 'numeric',-->
+                <!--                    day: 'numeric',-->
+                <!--                    hour: 'numeric',-->
+                <!--                    minute: 'numeric',-->
+                <!--                    second: 'numeric',-->
+                <!--                  }).format(new Date(post.createdAt))-->
+                <!--                }}-->
+                <!--                <ul>-->
+                <!--                  <li v-for="(value, key) in post" :key="key">-->
+                <!--                    <strong>{{ key }}:</strong> {{ value }}-->
+                <!--                  </li>-->
+                <!--                </ul>-->
               </b-card-text>
               <b-card-img :src="require(`~/assets/img/reviews/${post.img}`)" :alt="post.title" width="100%" />
               <b-card-actions>
@@ -110,7 +110,7 @@ export default {
   data() {
     return {
       selectedCategory: 'all',
-      search: '',
+      search: '', // Add the search property
     };
   },
 
@@ -122,10 +122,14 @@ export default {
         filtered = filtered.filter(post => post.categories.includes(this.selectedCategory));
       }
 
-      if (this.search.trim() !== '') {
-        filtered = filtered.filter(post =>
-          post.title.toLowerCase().includes(this.search.toLowerCase())
-        );
+      const searchQuery = this.search.trim().toLowerCase();
+      if (searchQuery) { // Check if search query is not empty
+        filtered = filtered.filter(post => {
+          const isInTitle = post.title.toLowerCase().includes(searchQuery);
+          const isInDescription = post.description.toLowerCase().includes(searchQuery);
+          const isInTags = post.tags.some(tag => tag.toLowerCase().includes(searchQuery));
+          return isInTitle || isInDescription || isInTags;
+        });
       }
 
       return filtered;
