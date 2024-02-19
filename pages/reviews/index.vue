@@ -13,14 +13,19 @@
     </section>
     <section>
       <b-container fluid="xl">
-        <b-row>
-          <b-form-select
-            v-model="selectedCategory"
-            :options="categories"
-            hide-details="auto"
+        <b-row class="justify-content-center mt-5 mb-4">
+          <!-- Category buttons -->
+          <b-button
+            v-for="category in categories"
+            :key="category"
+            :variant="selectedCategory === category ? 'outline-primary' : 'outline-secondary'"
             class="ml-3"
             style="width: 200px"
-          />
+            pill
+            @click="selectedCategory = category"
+          >
+            {{ category }}
+          </b-button>
         </b-row>
         <b-row>
           <b-col v-for="post in filteredPosts" :key="post.slug" cols="12" md="6">
@@ -103,13 +108,13 @@ export default {
       limit,
       posts,
       nextPage,
-      categories: ['all', ...uniqueCategories], // Include 'all' option
+      categories: ['All Reviews', ...uniqueCategories], // Include 'All Reviews' option
     };
   },
 
   data() {
     return {
-      selectedCategory: 'all',
+      selectedCategory: 'All Reviews',
       search: '', // Add the search property
     };
   },
@@ -118,7 +123,7 @@ export default {
     filteredPosts() {
       let filtered = this.posts;
 
-      if (this.selectedCategory !== 'all') {
+      if (this.selectedCategory !== 'All Reviews') {
         filtered = filtered.filter(post => post.categories.includes(this.selectedCategory));
       }
 
@@ -149,7 +154,7 @@ export default {
     async fetchPosts() {
       let baseFetch = this.$content('reviews').limit(this.limit);
 
-      if (this.selectedCategory !== 'all') {
+      if (this.selectedCategory !== 'All Reviews') {
         baseFetch = baseFetch.where({ categories: { $contains: this.selectedCategory } });
       }
 
