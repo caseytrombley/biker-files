@@ -5,6 +5,7 @@ img: wired-freedom.jpg
 description: 'Eunorau Specter'
 
 categories: 
+  - Full Suspension
   - Mid-drive
   - Mountain
 

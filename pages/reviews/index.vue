@@ -22,7 +22,7 @@
             class="ml-3"
             style="width: 200px"
             pill
-            @click="selectedCategory = category"
+            @click="selectedCategory = category; fetchPosts()"
           >
             {{ category }}
           </b-button>
@@ -50,12 +50,6 @@
                     </b-col>
                   </b-row>
                 </div>
-
-                <!--                  <ul>-->
-                <!--                    <li v-for="(value, key) in post" :key="key">-->
-                <!--                      <strong>{{ key }}:</strong> {{ value }}-->
-                <!--                    </li>-->
-                <!--                  </ul>-->
               </b-card-text>
               <b-card-actions>
                 <b-btn text :to="post.path">Read More</b-btn>
@@ -96,7 +90,6 @@ export default {
     const fetchedPosts = await $content('reviews')
       .limit(limit)
       .sortBy('createdAt', 'desc')
-      .skip((limit - 1) * (page - 1))
       .fetch();
 
     const nextPage = fetchedPosts.length === limit;
@@ -139,9 +132,8 @@ export default {
         filtered = filtered.filter(post => {
           const isInTitle = post.title.toLowerCase().includes(searchQuery);
           const isInDescription = post.description.toLowerCase().includes(searchQuery);
-          const isInCategories = post.categories.some(cat => cat.toLowerCase().includes(searchQuery));
           const isInTags = post.tags.some(tag => tag.toLowerCase().includes(searchQuery));
-          return isInTitle || isInDescription || isInCategories || isInTags;
+          return isInTitle || isInDescription || isInTags;
         });
       }
 
@@ -183,6 +175,5 @@ export default {
 <style lang="scss" scoped>
 .header {
   padding: 2rem 0;
-
 }
 </style>
