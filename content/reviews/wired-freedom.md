@@ -3,9 +3,25 @@ title: Wired Freedom
 slug: wired-freedom
 img: wired-freedom.jpg
 description: 'Wired Freedom'
-categories: 
+
+categories:
+  - All Terrain
+  - Camping
+  - Commuter
+  - Cruiser
+  - Fat Tire
+  - Full Suspension
   - Hub Drive
+  - Hunting
+  - Hybrid
+
+
+subCategories:
   - Best of 2024
+  - Cadence Sensor
+  - Throttle
+  - Under 3k
+
 tags:
   - fat tire
   - 4" fat tire

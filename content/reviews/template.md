@@ -21,6 +21,7 @@ categories:
   - Hub Drive
   - Hunting
   - Hybrid
+  - Mid-drive
   - Motorcycle
   - Mountain
   - Road
