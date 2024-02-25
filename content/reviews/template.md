@@ -1,7 +1,7 @@
 ---
 title: Template
 slug: template
-img: wired-freedom.jpg
+img: bike-template.jpg
 description: 'Review Template'
 
 categories:

@@ -1,7 +1,7 @@
 ---
 title: Eunorau Specter 
 slug: eunorau-specter
-img: wired-freedom.jpg
+img: eunorau-specter-s.jpg
 description: 'Eunorau Specter'
 
 categories: 

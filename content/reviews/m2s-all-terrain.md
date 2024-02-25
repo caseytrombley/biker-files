@@ -1,7 +1,7 @@
 ---
 title: M2S All Terrain
 slug: m2s-all-terrain
-img: wired-freedom.jpg
+img: m2s-all-terrain.jpg
 description: 'Mountains To Sea All Terrain'
 
 categories: 

@@ -1,7 +1,7 @@
 ---
 title: Aventon Aventure 2.0
 slug: aventon-aventure-2.0
-img: wired-freedom.jpg
+img: aventon-aventure2.jpg
 description: 'Aventon Aventure 2.0'
 
 categories:
