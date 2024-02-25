@@ -1,11 +1,43 @@
 ---
-title: Temple
+title: Template
 slug: template
 img: wired-freedom.jpg
 description: 'Review Template'
 categories:
+  - All Terrain
+  - Beach Cruiser
+  - BMX
+  - Camping
+  - Cargo
+  - City
+  - Commuter
+  - Cruiser
+  - Dirt Bike
+  - Fat Tire
+  - Folding
+  - Full Suspension
+  - Gravel
+  - Hardtail
   - Hub Drive
+  - Hunting
+  - Hybrid
+  - Motorcycle
+  - Mountain
+  - Road
+  - Step-thru
+  - Touring
+  - Trike
+
+subCategories:
   - Best of 2024
+  - Belt-drive
+  - Cadence Sensor
+  - Throttle
+  - Torque Assist
+  - Under 1k
+  - Under 2k
+  - Under 3k
+  - Under 4k
 
 tags:
   - fat tire
@@ -24,12 +56,17 @@ peak: 2,200
 battery: 1,200
 range: 62
 throttle: true
+assistLevels: 5
 app: true
 payload: 400
 priceLevel: 2
 
+pas: 
+  - cadence
+  - torque
+
 wheels:
-- 4x26
+  - 4x26
 
 ---
 
