@@ -95,27 +95,19 @@ export default {
     const nextPage = fetchedPosts.length === limit;
     const posts = nextPage ? fetchedPosts.slice(0, -1) : fetchedPosts;
 
-    // Extract unique categories from all posts
-    const allCategories = posts.reduce((categories, post) => {
-      categories.push(...post.categories);
-      return categories;
-    }, []);
-
-    const uniqueCategories = [...new Set(allCategories)];
-
     return {
       page,
       limit,
       posts,
       nextPage,
-      categories: ['All Reviews', ...uniqueCategories], // Include 'All Reviews' option
+      categories: ['All Reviews', 'Hub Drive', 'Mid-drive', 'Step-thru', 'Full Suspension'],
     };
   },
 
   data() {
     return {
       selectedCategory: 'All Reviews',
-      search: '', // Add the search property
+      search: '',
     };
   },
 
@@ -128,7 +120,7 @@ export default {
       }
 
       const searchQuery = this.search.trim().toLowerCase();
-      if (searchQuery) { // Check if search query is not empty
+      if (searchQuery) {
         filtered = filtered.filter(post => {
           const isInTitle = post.title.toLowerCase().includes(searchQuery);
           const isInDescription = post.description.toLowerCase().includes(searchQuery);
@@ -138,6 +130,13 @@ export default {
       }
 
       return filtered;
+    },
+  },
+
+  watch: {
+    selectedCategory() {
+      this.page = 1; // Reset page to 1 when category changes
+      this.fetchPosts();
     },
   },
 
