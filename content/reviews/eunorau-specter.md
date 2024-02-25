@@ -16,11 +16,12 @@ tags:
   - throttle
   - 350 lbs payload capacity
 
-type: Mid Drive
-wattage: 48
-motor: 1,000
+motor: Mid-drive
+voltage: 48
+wattage: 1,000
 peak: 1,800
 battery: 850
+range: 40
 throttle: true
 app: false
 payload: 350

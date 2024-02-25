@@ -1,11 +1,12 @@
 ---
-title: Wired Freedom
-slug: wired-freedom
+title: Temple
+slug: template
 img: wired-freedom.jpg
-description: 'Wired Freedom'
-categories: 
+description: 'Review Template'
+categories:
   - Hub Drive
   - Best of 2024
+
 tags:
   - fat tire
   - 4" fat tire
@@ -25,12 +26,14 @@ range: 62
 throttle: true
 app: true
 payload: 400
+priceLevel: 2
+
 wheels:
-  - 4x26
+- 4x26
 
 ---
 
-# Wired Freedom
+# Review Template
 
 2,200 watt peak power
 A real tank of an e-bike with some serious get up and go to tackle any hill and terrain.

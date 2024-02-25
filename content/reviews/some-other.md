@@ -15,11 +15,12 @@ tags:
   - throttle
   - 350 lbs payload capacity
 
-type: Hub Drive
-wattage: 60
-motor: 1,500
+motor: Hub Drive
+voltage: 60
+wattage: 1,500
 peak: 2,200
 battery: 1,200
+range: 45
 throttle: true
 app: true
 payload: 400

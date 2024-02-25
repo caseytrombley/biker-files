@@ -32,24 +32,31 @@
             <b-card elevation="0">
               <b-card-title>{{ post.title }}</b-card-title>
               <b-card-subtitle>{{ post.description }}</b-card-subtitle>
+              <b-card-img
+                :src="require(`~/assets/img/reviews/${post.img}`)"
+                :alt="post.title" width="100%"
+              />
               <b-card-text>
-                <!--                {{-->
-                <!--                  new Intl.DateTimeFormat('en-US', {-->
-                <!--                    year: 'numeric',-->
-                <!--                    month: 'numeric',-->
-                <!--                    day: 'numeric',-->
-                <!--                    hour: 'numeric',-->
-                <!--                    minute: 'numeric',-->
-                <!--                    second: 'numeric',-->
-                <!--                  }).format(new Date(post.createdAt))-->
-                <!--                }}-->
-                <!--                <ul>-->
-                <!--                  <li v-for="(value, key) in post" :key="key">-->
-                <!--                    <strong>{{ key }}:</strong> {{ value }}-->
-                <!--                  </li>-->
-                <!--                </ul>-->
+                <div class="post-highlights">
+                  <b-row>
+                    <b-col>
+                      {{ post.motor }}
+                    </b-col>
+                    <b-col>
+                      {{ post.range }}
+                    </b-col>
+                    <b-col>
+                      {{ post.price }}
+                    </b-col>
+                  </b-row>
+                </div>
+
+                <!--                  <ul>-->
+                <!--                    <li v-for="(value, key) in post" :key="key">-->
+                <!--                      <strong>{{ key }}:</strong> {{ value }}-->
+                <!--                    </li>-->
+                <!--                  </ul>-->
               </b-card-text>
-              <b-card-img :src="require(`~/assets/img/reviews/${post.img}`)" :alt="post.title" width="100%" />
               <b-card-actions>
                 <b-btn text :to="post.path">Read More</b-btn>
               </b-card-actions>

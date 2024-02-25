@@ -11,9 +11,10 @@
           </b-col>
           <b-col>
             <ul>
-              <li v-if="post.type">{{ post.type }}</li>
-              <li v-if="post.motor">{{ post.motor }}W</li>
+              <li v-if="post.motor">{{ post.motor }}</li>
+              <li v-if="post.wattage">{{ post.wattage }}W</li>
               <li v-if="post.battery">{{ post.battery }}Wh battery</li>
+              <li v-if="post.range">{{ post.range }} mile range</li>
             </ul>
 
 

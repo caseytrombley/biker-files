@@ -18,11 +18,12 @@ tags:
   - app integrated
   - 400 lbs payload capacity
 
-type: Hub Drive
-wattage: 48
-motor: 750
+motor: Hub Drive
+voltage: 48
+wattage: 750
 peak: 1,130
 battery: 720
+range: 45
 throttle: true
 app: true
 payload: 400
