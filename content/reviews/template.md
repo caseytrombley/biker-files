@@ -3,6 +3,7 @@ title: Template
 slug: template
 img: wired-freedom.jpg
 description: 'Review Template'
+
 categories:
   - All Terrain
   - Beach Cruiser
