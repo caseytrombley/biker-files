@@ -25,10 +25,15 @@ motor: Hub Drive
 voltage: 48
 wattage: 750
 peak: 1,130
-battery: 720
-range: 45
+
+battery: LG 48V 20Ah
+ampHours: 20
+wattHours: 720
+range: 60
+topSpeed: 25
+torque: 40
+
 throttle: true
-app: true
 payload: 400
 wheels: 
   - 4x26

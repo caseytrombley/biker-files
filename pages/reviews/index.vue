@@ -29,32 +29,27 @@
         </b-row>
         <b-row>
           <b-col v-for="post in filteredPosts" :key="post.slug" cols="12" md="4">
-            <b-card elevation="0">
-              <b-card-title>{{ post.title }}</b-card-title>
-              <b-card-subtitle>{{ post.description }}</b-card-subtitle>
-              <b-card-img
-                :src="require(`~/assets/img/reviews/${post.img}`)"
-                :alt="post.title" width="100%"
-              />
-              <b-card-text>
-                <div class="post-highlights">
-                  <b-row>
-                    <b-col>
-                      {{ post.motor }}
-                    </b-col>
-                    <b-col>
-                      {{ post.range }}
-                    </b-col>
-                    <b-col>
-                      {{ post.price }}
-                    </b-col>
-                  </b-row>
-                </div>
-              </b-card-text>
-              <b-card-actions>
-                <b-btn text :to="post.path">Read More</b-btn>
-              </b-card-actions>
-            </b-card>
+            <BaseCard
+              :title="post.title"
+              :description="post.description"
+              :img="post.img"
+              :path="post.path"
+            >
+              <div class="post-highlights">
+                <b-row>
+                  <b-col>
+                    {{ post.motor }}
+                  </b-col>
+                  <b-col>
+                    {{ post.range }}
+                  </b-col>
+                  <b-col>
+                    {{ post.price }}
+                  </b-col>
+                </b-row>
+              </div>
+            </BaseCard>
+
           </b-col>
         </b-row>
         <b-row v-if="filteredPosts.length === 0">
@@ -81,8 +76,11 @@
 </template>
 
 <script>
+import BaseCard from "~/components/base/BaseCard.vue";
+
 export default {
   name: 'ReviewsHome',
+  components: {BaseCard},
   async asyncData({ $content }) {
     const limit = 6;
     const page = 1;
@@ -174,5 +172,9 @@ export default {
 <style lang="scss" scoped>
 .header {
   padding: 2rem 0;
+}
+[class^="col-"] {
+  display: flex;
+  flex-direction: column;
 }
 </style>

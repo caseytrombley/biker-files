@@ -19,10 +19,15 @@ motor: Hub Drive
 voltage: 60
 wattage: 1,500
 peak: 2,200
-battery: 1,200
-range: 45
+
+battery: Samsung 60V 20Ah
+ampHours: 20
+wattHours: 1,200
+range: 60-80
+topSpeed: 39
+torque: 138
+
 throttle: true
-app: true
 payload: 400
 wheels:
   - 4x26

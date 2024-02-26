@@ -28,5 +28,6 @@ export default {
 .main {
   min-height: 100vh;
   padding-top: 68px;
+  background: #f5f5f5;
 }
 </style>

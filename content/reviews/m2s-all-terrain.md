@@ -22,8 +22,12 @@ motor: Hub Drive
 voltage: 48
 wattage: 750
 peak: 1,500
-battery: 600
+battery: 48V 16Ah
+ampHours: 16
+wattHours: 600
 range: 40
+topSpeed: 25
+torque: 40
 throttle: true
 app: false
 payload: 400

@@ -41,6 +41,7 @@ brakes: hydraulic (2-piston)
 assistLevels: 5
 payload: 400
 priceLevel: 2
+rating: 4.2
 
 pas:
   - cadence

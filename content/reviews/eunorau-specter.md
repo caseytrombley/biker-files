@@ -23,8 +23,12 @@ motor: Mid-drive
 voltage: 48
 wattage: 1,000
 peak: 1,800
-battery: 850
+battery: 48V 20Ah
+ampHours: 20
+wattHours: 850
 range: 40
+topSpeed: 25
+torque: 138
 throttle: true
 app: false
 payload: 350
