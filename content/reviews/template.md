@@ -35,7 +35,7 @@ subCategories:
   - Belt-drive
   - Cadence Sensor
   - Throttle
-  - Torque Assist
+  - Torque Sensor
   - Under 1k
   - Under 2k
   - Under 3k

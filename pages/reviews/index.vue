@@ -28,7 +28,7 @@
           </b-button>
         </b-row>
         <b-row>
-          <b-col v-for="post in filteredPosts" :key="post.slug" cols="12" md="6">
+          <b-col v-for="post in filteredPosts" :key="post.slug" cols="12" md="4">
             <b-card elevation="0">
               <b-card-title>{{ post.title }}</b-card-title>
               <b-card-subtitle>{{ post.description }}</b-card-subtitle>
@@ -84,7 +84,7 @@
 export default {
   name: 'ReviewsHome',
   async asyncData({ $content }) {
-    const limit = 5;
+    const limit = 6;
     const page = 1;
 
     const fetchedPosts = await $content('reviews')
