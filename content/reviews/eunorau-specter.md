@@ -9,6 +9,11 @@ categories:
   - Mid-drive
   - Mountain
 
+subCategories:
+  - Throttle
+  - Torque Sensor
+  - Under 4k
+
 tags:
   - fat tire
   - 4" fat tire
@@ -32,11 +37,12 @@ torque: 138
 throttle: true
 app: false
 payload: 350
+
 wheels:
   - 3x27.5
 
 ---
 
-# Some bike
+# Eunorau Specter S
 
 A real tank of an e-bike with some serious get up and go to tackle any hill and terrain. Greg is a cat
