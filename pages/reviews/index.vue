@@ -91,7 +91,7 @@ export default {
       .fetch();
 
     const nextPage = fetchedPosts.length === limit;
-    const posts = nextPage ? fetchedPosts.slice(0, -1) : fetchedPosts;
+    const posts = fetchedPosts;
 
     return {
       page,
@@ -101,6 +101,7 @@ export default {
       categories: ['All Reviews', 'Hub Drive', 'Mid-drive', 'Step-thru', 'Full Suspension'],
     };
   },
+
 
   data() {
     return {
