@@ -51,7 +51,7 @@ tags:
   - throttle
   - 350 lbs payload capacity
 
-motor: Hub Drive
+motor: Mid-drive
 voltage: 60
 wattage: 1,500
 peak: 2,200
