@@ -158,11 +158,11 @@ export default {
 
       const fetchedPosts = await baseFetch
         .sortBy('createdAt', 'desc')
-        .skip((this.limit - 1) * (this.page - 1))
+        .skip(this.limit * (this.page - 1)) // Adjusted skip calculation
         .fetch();
 
       this.nextPage = fetchedPosts.length === this.limit;
-      this.posts = this.nextPage ? fetchedPosts.slice(0, -1) : fetchedPosts;
+      this.posts = fetchedPosts; // No need to slice here
     },
     clearSearch() {
       this.search = '';
