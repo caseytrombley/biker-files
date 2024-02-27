@@ -1,7 +1,10 @@
 <template>
   <div class="app-logo">
-    <div class="name">Biker Files</div>
-
+    <img
+      :src="require(`~/assets/img/logo-bikefiles.svg`)"
+      alt="Bike Files"
+      :style="{height: getHeight}"
+    >
   </div>
 </template>
 
@@ -11,7 +14,7 @@ export default {
   props: {
     height: {
       type: Number,
-      default: 60
+      default: 50
     }
   },
   computed: {
@@ -33,7 +36,7 @@ export default {
   }
 
   svg {
-    transition: .3s;
+    transition: all .3s;
     width: auto;
     //height: 60px;
     margin: 0;

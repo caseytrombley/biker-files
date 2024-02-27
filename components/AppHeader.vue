@@ -6,19 +6,26 @@
   >
 
     <b-navbar
-        toggleable="lg"
-        fixed="top"
-        variant="dark"
-        :style="[{background: `rgba(0,0,0,${number}`}, {padding: `${scrollPosition > 80 ? '0' : '5px'} 0`}]"
+      toggleable="lg"
+      fixed="top"
+      :style="[
+        {padding: `${scrollPosition > 80 ? '0' : '5px'} 0`}
+      ]"
     >
       <b-container fluid="xl" class="justify-content-between">
-        <NuxtLink to="/" class="navbar-brand"><app-logo :height="scrollPosition > 80 ? 54 : 60" /></NuxtLink>
+        <NuxtLink to="/" class="navbar-brand">
+          <app-logo :height="scrollPosition > 80 ? 44 : 50" />
+        </NuxtLink>
 
         <b-navbar-toggle target="nav-collapse">
 <!--          <b-icon-list />-->
         </b-navbar-toggle>
 
-        <b-collapse id="nav-collapse" class="justify-content-end" is-nav :style="{background: `rgba(0,0,0,${numberReverse}`}">
+        <b-collapse
+          id="nav-collapse"
+          class="justify-content-end"
+          is-nav
+        >
           <b-navbar-nav class="ml-auto">
             <b-nav-text class="nav-link"><NuxtLink to="/about">About</NuxtLink></b-nav-text>
             <b-nav-text class="nav-link"><NuxtLink to="/blog">Blog</NuxtLink></b-nav-text>
@@ -69,7 +76,7 @@ export default {
   data() {
     return {
       scrollPosition: null,
-      number: 0,
+      number: .9,
       numberReverse: 1
     }
   },
@@ -84,7 +91,7 @@ export default {
       this.scrollPosition = window.scrollY;
       this.number = this.scrollPosition <= 300 ? this.scrollPosition / 300 : 1;
 
-      this.numberReverse = this.scrollPosition <= 300 ? 1 - this.scrollPosition / 300 : 0;
+      this.numberReverse = this.scrollPosition <= 300 ? 1 - this.scrollPosition / 300 : .9;
     },
   }
 }
@@ -97,6 +104,7 @@ export default {
 
 .navbar {
   transition: .3s;
+  background: rgba(118, 112, 180, 1);
 }
 .navbar-brand {
   position: relative;
