@@ -6,7 +6,13 @@
 
         <div class="search d-flex align-center justify-end">
           <b-input-group size="sm" class="align-items-center">
-            <b-form-input v-model="search" type="search" hide-details="auto" placeholder="Search for a post" @click:append="clearSearch" />
+            <b-form-input
+              v-model="search"
+              type="search"
+              hide-details="auto"
+              placeholder="Search for a post"
+              @click:append="clearSearch"
+            />
           </b-input-group>
         </div>
       </b-container>

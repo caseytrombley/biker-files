@@ -18,7 +18,15 @@
         </NuxtLink>
 
         <b-navbar-toggle target="nav-collapse">
-<!--          <b-icon-list />-->
+          <template #default="{ expanded }">
+            <div id="hamburger-9" class="hamburger" :class="{'is-active': expanded}">
+              <span class="line"></span>
+              <span class="line"></span>
+              <span class="line"></span>
+            </div>
+<!--            <b-icon v-if="expanded" icon="chevron-bar-up"></b-icon>-->
+<!--            <b-icon v-else icon="chevron-bar-down"></b-icon>-->
+          </template>
         </b-navbar-toggle>
 
         <b-collapse
@@ -115,6 +123,20 @@ export default {
   }
 }
 
+.navbar-light {
+  .navbar-nav {
+    .nav-link {
+      color: rgba(255, 255, 255, 0.75);
+    }
+  }
+
+  .navbar-text {
+    a {
+      color: rgba(255, 255, 255, 0.75);
+    }
+  }
+}
+
 .nav-link {
   color: #ffffff !important;
 }
@@ -124,8 +146,13 @@ export default {
 }
 
 .navbar-toggler {
+  position: relative;
+  right: 20px;
+  width: 50px;
+  height: 50px;
   border: 0;
-  padding: .5rem;
+  text-align: center;
+  padding: 0;
   color: #ffffff;
 }
 
@@ -140,5 +167,68 @@ export default {
   @media (min-width: 992px) {
     background: none !important;
   }
+}
+
+/* NINE */
+
+.hamburger {
+
+  .line {
+    width: 35px;
+    height: 2px;
+    background-color: rgba(255, 255, 255, 0.75);
+    display: block;
+    margin: 8px auto;
+    transition: all 0.3s ease-in-out;
+  }
+
+  &.is-active {
+    .line {
+      height: 2px;
+      background-color: rgba(255, 255, 255, 0.5);
+    }
+  }
+}
+
+#hamburger-9{
+  position: relative;
+  transition: all 0.3s ease-in-out;
+}
+
+#hamburger-9.is-active{
+  transform: rotate(45deg);
+}
+
+#hamburger-9:before{
+  content: "";
+  position: absolute;
+  box-sizing: border-box;
+  width: 40px;
+  height: 40px;
+  border: 2px solid transparent;
+  top: calc(50% - 20px);
+  left: calc(50% - 20px);
+  border-radius: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+#hamburger-9.is-active:before{
+  border: 4px solid rgba(255, 255, 255, 0.5);
+}
+
+#hamburger-9.is-active .line{
+  width: 35px;
+}
+
+#hamburger-9.is-active .line:nth-child(2){
+  opacity: 0;
+}
+
+#hamburger-9.is-active .line:nth-child(1){
+  transform: translateY(10px);
+}
+
+#hamburger-9.is-active .line:nth-child(3){
+  transform: translateY(-10px) rotate(90deg);
 }
 </style>
