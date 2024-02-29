@@ -126,7 +126,16 @@ export default {
 .navbar-light {
   .navbar-nav {
     .nav-link {
+      padding: .5rem 1rem;
+      border-radius: 50px;
       color: rgba(255, 255, 255, 0.75);
+
+      &:hover {
+        background: rgba(0, 0, 0, 0.05);
+      }
+      a {
+        text-decoration: none;
+      }
     }
   }
 
@@ -135,14 +144,6 @@ export default {
       color: rgba(255, 255, 255, 0.75);
     }
   }
-}
-
-.nav-link {
-  color: #ffffff !important;
-}
-
-.nav-link:hover, .nav-link:focus {
-  color: $pink !important;
 }
 
 .navbar-toggler {

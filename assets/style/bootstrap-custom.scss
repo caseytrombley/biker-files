@@ -309,17 +309,32 @@ $dark:          $gray-900 !default;
 // scss-docs-end theme-color-variables
 
 // scss-docs-start theme-colors-map
+//$theme-colors: (
+//        "primary":    $primary,
+//        "secondary":  $secondary,
+//        "success":    $success,
+//        "info":       $info,
+//        "warning":    $warning,
+//        "danger":     $danger,
+//        "light":      $light,
+//        "dark":       $dark
+//) !default;
 $theme-colors: (
-        "primary":    $primary,
-        "secondary":  $secondary,
-        "success":    $success,
-        "info":       $info,
-        "warning":    $warning,
-        "danger":     $danger,
-        "light":      $light,
-        "dark":       $dark
+  "light":      #d6ccb3,
+  "dark":       #f2e4bc,
+  "primary":    #33488f,
+  "secondary":  #6f6e88,
+  "info":       #93968f,
+  "accent1":    #37303a,
+  "accent2":    #545960,
+  "accent3":    #e2954d,
+  "success":    #279e60,
+  "warning":    #e0ca29,
+  "danger":     #ec2315,
 ) !default;
 // scss-docs-end theme-colors-map
+
+
 
 // Characters which are escaped by the escape-svg function
 $escaped-characters: (

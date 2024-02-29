@@ -25,8 +25,8 @@
             v-for="category in categories"
             :key="category"
             :variant="selectedCategory === category ? 'outline-primary' : 'outline-secondary'"
-            class="ml-3"
-            style="width: 200px"
+            :style="{ borderColor: selectedCategory !== category ? 'transparent' : '' }"
+            class="ml-2 mr-2 mb-2"
             pill
             @click="selectedCategory = category; fetchPosts()"
           >
@@ -66,11 +66,11 @@
 
         <b-row v-if="posts.length" class="post-pagination">
           <b-col class="text-right" cols="12">
-            <b-btn :disabled="page === 1" @click="fetchPrevious">
+            <b-btn size="sm" :disabled="page === 1" @click="fetchPrevious">
               <b-icon-arrow-left />
               Previous
             </b-btn>
-            <b-btn :disabled="!nextPage" @click="fetchNext">
+            <b-btn size="sm" :disabled="!nextPage" @click="fetchNext">
               Next
               <b-icon-arrow-right />
             </b-btn>

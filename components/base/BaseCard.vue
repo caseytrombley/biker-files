@@ -10,9 +10,9 @@
       <b-card-text>
         <slot />
       </b-card-text>
-      <div>
-        <b-btn text :to="path">Read More</b-btn>
-      </div>
+<!--      <div>-->
+<!--        <b-btn size="sm" text :to="path">Read More</b-btn>-->
+<!--      </div>-->
     </b-card>
   </router-link>
 

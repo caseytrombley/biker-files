@@ -1,6 +1,56 @@
-//@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap');
-//
-//@import url('https://fonts.googleapis.com/css2?family=Caveat&display=swap');
+// @import url("https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700;800&display=swap");
+
+
+//https://huemint.com/bootstrap-plus/#palette=d6ccb3-ffffff-f2e4bc-33488f-6f6e88-93968f-37303a-545960-e2954d
+$theme-colors: (
+  "light":      #d6ccb3,
+  "dark":       #f2e4bc,
+  "primary":    #33488f,
+  "secondary":  #6f6e88,
+  "info":       #93968f,
+  "accent1":    #37303a,
+  "accent2":    #545960,
+  "accent3":    #e2954d,
+  "success":    #279e60,
+  "warning":    #e0ca29,
+  "danger":     #ec2315,
+);
+// https://huemint.com/bootstrap-plus/#palette=f3f4eb-ffffff-171314-374158-656d82-5d9bdb-b78d48-ae6f37-ccbba8
+//$theme-colors: (
+//  "light":      #f3f4eb,
+//  "dark":       #171314,
+//  "primary":    #374158,
+//  "secondary":  #656d82,
+//  "info":       #5d9bdb,
+//  "accent1":    #b78d48,
+//  "accent2":    #ae6f37,
+//  "accent3":    #ccbba8,
+//  "success":    #2baf69,
+//  "warning":    #e6ce29,
+//  "danger":     #f51f15,
+//);
+
+$input-btn-padding-y:         .75rem !default;
+$input-btn-padding-x:         2rem !default;
+$input-btn-padding-y-sm:      .5rem !default;
+$input-btn-padding-x-sm:      1rem !default;
+$input-btn-padding-y-lg:      1rem !default;
+$input-btn-padding-x-lg:      1.5rem !default;
+$btn-padding-y:               $input-btn-padding-y !default;
+$btn-padding-x:               $input-btn-padding-x !default;
+$btn-padding-y-sm:            $input-btn-padding-y-sm !default;
+$btn-padding-x-sm:            $input-btn-padding-x-sm !default;
+$btn-padding-y-lg:            $input-btn-padding-y-lg !default;
+$btn-padding-x-lg:            $input-btn-padding-x-lg !default;
+
+
+.btn:focus,
+.btn:active,
+.btn:active:focus {
+  outline: none !important;
+  // box-shadow: 0 0 0 8px rgba(108, 117, 125, 0.07) !important;
+  box-shadow: none !important;
+}
 
 $font-family-sans-serif: 'Rubik', sans-serif !default;
 $font-family-serif:      Georgia, "Times New Roman", Times, serif !default;
