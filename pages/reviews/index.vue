@@ -2,19 +2,44 @@
   <div>
     <section class="header">
       <b-container fluid="xl">
-        <h1>Reviews home</h1>
+
+        <!-- Breadcrumb navigation -->
+        <nav aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <li v-for="(breadcrumb, index) in breadcrumbs" :key="index" class="breadcrumb-item">
+              <b-link :to="breadcrumb.path">{{ breadcrumb.label }}</b-link>
+            </li>
+          </ol>
+        </nav>
+
+        <div class="p-0 bg-transparent">
+          <h2>Reviews</h2>
+          <p></p>
+        </div>
 
         <div class="search d-flex align-center justify-end">
-          <b-input-group size="sm" class="align-items-center">
+          <b-input-group class="align-items-center">
+            <!-- Prepend button with search icon -->
+            <b-input-group-prepend is-text class="p-0">
+              <b-button size="sm" variant="outline-secondary">
+                <b-icon-search></b-icon-search>
+              </b-button>
+            </b-input-group-prepend>
+
+            <!-- Search input -->
             <b-form-input
               v-model="search"
               type="search"
+              class="h-100"
               hide-details="auto"
-              placeholder="Search for a post"
+              placeholder="Search reviews"
               @click:append="clearSearch"
             />
           </b-input-group>
+
         </div>
+
+
       </b-container>
     </section>
     <section>
@@ -60,7 +85,15 @@
         </b-row>
         <b-row v-if="filteredPosts.length === 0">
           <b-col cols="12">
-            <p>No posts found, yet. <span class="emoji">😁</span></p>
+            <b-jumbotron lead="No posts found, yet." class="text-center">
+
+              <template #header>
+                <b-icon-search></b-icon-search>
+              </template>
+              <p>Sorry, I can't find that right now. <span class="emoji">😬</span></p>
+
+            </b-jumbotron>
+
           </b-col>
         </b-row>
 
@@ -117,6 +150,17 @@ export default {
   },
 
   computed: {
+    breadcrumbs() {
+      const breadcrumbs = [
+        { label: 'Home', path: '/' }, // Assuming this is your home page path
+        { label: 'Reviews', path: '/reviews' }, // Assuming this is the path to your reviews page
+        // Add more breadcrumb items dynamically based on selectedCategory and search query
+        // { label: this.selectedCategory, path: `/reviews/${this.selectedCategory.toLowerCase()}` },
+        // // Add breadcrumb item for search query if present
+        // ...(this.search ? [{ label: `Search: ${this.search}`, path: '#' }] : []),
+      ];
+      return breadcrumbs;
+    },
     filteredPosts() {
       let filtered = this.posts;
 
@@ -183,5 +227,23 @@ export default {
 [class^="col-"] {
   display: flex;
   flex-direction: column;
+}
+
+.search {
+  font-size: 1.2rem;
+
+  .input-group {
+    > .form-control {
+      padding: 0 1rem;
+    }
+  }
+
+  .input-group-text {
+    padding: 0;
+  }
+
+  .btn {
+    border: 0;
+  }
 }
 </style>
