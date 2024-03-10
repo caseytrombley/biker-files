@@ -2,7 +2,7 @@
 title: Wired Freedom
 slug: wired-freedom
 img: wired-freedom.jpg
-description: 'Wired Freedom'
+description: 'All Terrain, High Powered'
 
 categories:
   - All Terrain
@@ -40,7 +40,7 @@ peak: 2,200
 battery: Samsung 60V 20Ah
 ampHours: 20
 wattHours: 1,200
-range: 60-80
+range: 30-80
 topSpeed: 39
 torque: 138
 

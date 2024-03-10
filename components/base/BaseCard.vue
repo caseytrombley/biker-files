@@ -1,45 +1,49 @@
 <template>
   <router-link :to="path" class="base-card-link">
     <b-card elevation="0" class="base-card">
-      <b-card-title>
-        <div class="title">{{ title }}</div>
-        <div class="sub text-muted">{{ description }}</div>
 
-      </b-card-title>
 
       <b-card-img
         :src="require(`~/assets/img/reviews/${img}`)"
         :alt="title" width="100%"
       />
+
+      <b-card-title>
+        <div class="title">{{ title }}</div>
+        <div class="sub text-muted">{{ description }}</div>
+
+      </b-card-title>
 <!--      <b-card-text>-->
 <!--        <slot />-->
 <!--      </b-card-text>-->
-      <div v-if="highlights" class="post-highlights">
-        <b-row>
-          <b-col>
-            <b-form-rating
-              v-if="highlights.rating"
-              v-model="rating"
-              precision="2"
-              readonly
-              size="sm"
-              class="rating"
-              variant="warning"
-            />
-            <div v-else class="text-muted">Unrated</div>
-            <div class="label">Rating</div>
+      <div v-if="highlights" class="post-highlights align-height">
+        <div class="wrapper">
+          <b-row>
+            <b-col>
+              <b-form-rating
+                v-if="highlights.rating"
+                v-model="rating"
+                precision="2"
+                readonly
+                size="sm"
+                class="rating"
+                variant="warning"
+              />
+              <div v-else class="text-muted">Unrated</div>
+              <div class="label">Rating</div>
 
-          </b-col>
-          <b-col>
-            <div class="val">{{ highlights.motor }}</div>
-            <div class="label">Motor</div>
-          </b-col>
-          <b-col>
-            <div class="val">{{ highlights.range }} mi</div>
-            <div class="label">Range</div>
-          </b-col>
+            </b-col>
+            <b-col>
+              <div class="val">{{ highlights.motor }}</div>
+              <div class="label">Motor</div>
+            </b-col>
+            <b-col>
+              <div class="val">{{ highlights.range }} mi</div>
+              <div class="label">Range</div>
+            </b-col>
 
-        </b-row>
+          </b-row>
+        </div>
       </div>
 <!--      <div>-->
 <!--        <b-btn size="sm" text :to="path">Read More</b-btn>-->
@@ -111,7 +115,7 @@ export default {
     border: 1px solid #d0d2d3;
   }
 
-  img {
+  .align-height {
     margin-top: auto;
   }
 
@@ -135,7 +139,11 @@ export default {
 }
 
 .post-highlights {
-  padding: 1.25rem;
+
+  .wrapper {
+    padding: 1.25rem;
+    border-top: .5px solid #d5d8dc;
+  }
 
   .val {
     height: 1.5rem;
@@ -155,7 +163,7 @@ export default {
 ::v-deep {
   .b-rating .b-rating-star,
   .b-rating .b-rating-value {
-    padding: 0 0.125em;
+    padding: 0 0.0125em;
   }
 }
 </style>
