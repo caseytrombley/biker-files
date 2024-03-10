@@ -6,7 +6,7 @@ description: 'Mountains To Sea All Terrain'
 
 categories: 
   - All Terrain
-  - Hub Drive
+  - Rear Hub
 
 tags:
   - commuter 
@@ -18,7 +18,7 @@ tags:
   - throttle
   - 350 lbs payload capacity
 
-motor: Hub Drive
+motor: Rear Hub
 voltage: 48
 wattage: 750
 peak: 1,500

@@ -11,7 +11,7 @@ categories:
   - Cruiser
   - Fat Tire
   - Full Suspension
-  - Hub Drive
+  - Rear Hub
   - Hunting
   - Hybrid
 
@@ -32,7 +32,7 @@ tags:
   - throttle
   - 350 lbs payload capacity
 
-motor: Hub Drive
+motor: Rear Hub
 voltage: 60
 wattage: 1,500
 peak: 2,200
@@ -45,8 +45,15 @@ topSpeed: 39
 torque: 138
 
 throttle: true
-app: true
+assistLevels: 5
 payload: 400
+priceLevel: 2
+rating: 3.50
+
+pas:
+  - cadence
+
+
 wheels:
   - 4x26
 

@@ -5,7 +5,7 @@ img: aventon-aventure2.jpg
 description: 'Aventon Aventure 2.0'
 
 categories:
-  - Hub Drive
+  - Rear Hub
   - Step-thru
   - Fat Tire
 
@@ -21,7 +21,7 @@ tags:
   - app integrated
   - 400 lbs payload capacity
 
-motor: Hub Drive
+motor: Rear Hub
 voltage: 48
 wattage: 750
 peak: 1,130

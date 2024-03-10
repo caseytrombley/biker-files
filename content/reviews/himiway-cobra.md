@@ -9,7 +9,7 @@ categories:
   - Camping
   - Fat Tire
   - Full Suspension
-  - Hub Drive
+  - Rear Hub
   - Hunting
   - Mountain
 
@@ -26,7 +26,7 @@ tags:
   - throttle
   - 400 lbs payload capacity
 
-motor: Hub Drive
+motor: Rear Hub
 voltage: 48
 wattage: 750
 peak: 1,200

@@ -65,21 +65,12 @@
               :description="post.description"
               :img="post.img"
               :path="post.path"
-            >
-              <div class="post-highlights">
-                <b-row>
-                  <b-col>
-                    {{ post.motor }}
-                  </b-col>
-                  <b-col>
-                    {{ post.range }}
-                  </b-col>
-                  <b-col>
-                    {{ post.price }}
-                  </b-col>
-                </b-row>
-              </div>
-            </BaseCard>
+              :highlights="{
+                rating: post.rating,
+                range: post.range,
+                motor: post.motor
+              }"
+            />
 
           </b-col>
         </b-row>
@@ -137,7 +128,7 @@ export default {
       limit,
       posts,
       nextPage,
-      categories: ['All Reviews', 'Hub Drive', 'Mid-drive', 'Step-thru', 'Full Suspension'],
+      categories: ['All Reviews', 'Rear Hub', 'Mid-drive', 'Step-thru', 'Full Suspension'],
     };
   },
 

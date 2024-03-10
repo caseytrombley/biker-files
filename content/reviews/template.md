@@ -19,7 +19,7 @@ categories:
   - Full Suspension
   - Gravel
   - Hardtail
-  - Hub Drive
+  - Rear Hub
   - Hunting
   - Hybrid
   - Mid-drive
@@ -65,7 +65,7 @@ throttle: true
 assistLevels: 5
 payload: 400
 priceLevel: 2
-rating: 4.2
+rating: 3.25
 
 pas: 
   - cadence

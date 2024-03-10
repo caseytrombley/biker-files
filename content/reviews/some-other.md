@@ -4,7 +4,7 @@ slug: some-other
 img: wired-freedom.jpg
 description: 'Some bike with high torque and quick acceleration, murph the dog loves this bike'
 categories: 
-  - Hub Drive
+  - Rear Hub
 tags:
   - fat tire
   - 4" fat tire
@@ -15,7 +15,7 @@ tags:
   - throttle
   - 350 lbs payload capacity
 
-motor: Hub Drive
+motor: Rear Hub
 voltage: 60
 wattage: 1,500
 peak: 2,200
