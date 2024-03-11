@@ -59,7 +59,7 @@
           </b-button>
         </b-row>
         <b-row>
-          <b-col v-for="post in filteredPosts" :key="post.slug" cols="12" md="4">
+          <b-col v-for="post in filteredPosts" :key="post.slug" cols="12" md="6" lg="4">
             <BaseCard
               :title="post.title"
               :description="post.description"
@@ -236,5 +236,9 @@ export default {
   .btn {
     border: 0;
   }
+}
+
+.post-pagination {
+  margin: 1rem 0;
 }
 </style>

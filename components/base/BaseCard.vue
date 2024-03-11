@@ -25,7 +25,7 @@
                 v-model="rating"
                 precision="2"
                 readonly
-                size="sm"
+                size="md"
                 class="rating"
                 variant="warning"
               />
@@ -157,6 +157,7 @@ export default {
 .rating {
   padding: 0;
   border: 0;
+  width: 0;
   height: 1.5rem !important;
 }
 
